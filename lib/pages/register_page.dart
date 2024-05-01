@@ -1,4 +1,6 @@
 import 'package:cafe_client_01/controller/login_controller.dart';
+import 'package:cafe_client_01/pages/login_page.dart';
+import 'package:cafe_client_01/widgets/otp_txt_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -56,29 +58,33 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                // OtpTextField(
-                //   otpController: ctrl.otpController,
-                //   visible: ctrl.otpFieldShown,
-                //   onComplete: (otp) {
-                //     ctrl.otpEnter = int.tryParse(otp ?? '0000');
-                //   },
-                // ),
-                // const SizedBox(height: 20),
+                OtpTextField(
+                  otpController: ctrl.otpController,
+                  visible: ctrl.OtpFieldShowm,
+                  onComplete: (otp) {
+                    ctrl.otpEntered = int.tryParse(otp ?? '0000');
+                  },
+                ),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // if (ctrl.otpFieldShown) {
+                    if (ctrl.OtpFieldShowm) {
                       ctrl.addUser();
-                    // } else {
-                    //   ctrl.sendOtp();
-                    // }
+                    } else {
+                      ctrl.sendOtp();
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.deepPurple),
                   // child: Text(ctrl.otpFieldShown ? 'Register' : 'Send OTP'),
-                  child: Text('Register'),
+                  child: Text(ctrl.OtpFieldShowm ? 'Register' : 'Send OTP'),
                 ),
-                TextButton(onPressed: () {}, child: const Text('Login'))
+                TextButton(
+                    onPressed: () {
+                      Get.to(LoginPage());
+                    },
+                    child: const Text('Login'))
               ],
             ),
           ),
