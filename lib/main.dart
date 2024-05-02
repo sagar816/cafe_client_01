@@ -1,3 +1,4 @@
+import 'package:cafe_client_01/controller/home_controller.dart';
 import 'package:cafe_client_01/controller/login_controller.dart';
 import 'package:cafe_client_01/firebase_options.dart';
 import 'package:cafe_client_01/pages/home_page.dart';
@@ -13,6 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: firebaseOptions);
   Get.put(LoginController());
+  Get.put(HomeController());
   runApp(const MyApp());
 }
 

@@ -1,10 +1,14 @@
+import 'package:cafe_client_01/model/menu/menu.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MenuDescriptionPage extends StatelessWidget {
   const MenuDescriptionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Menu menu = Get.arguments['data'];
+    // print(data);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -20,7 +24,7 @@ class MenuDescriptionPage extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                'https://firebasestorage.googleapis.com/v0/b/cafe-app-01.appspot.com/o/Burger.jpeg?alt=media&token=d4c5e7d9-499f-4566-8e36-5d438cf4b238',
+                menu.image ?? '',
                 fit: BoxFit.contain,
                 width: double.infinity,
                 height: 200, //Adjust the height accordingly
@@ -28,7 +32,7 @@ class MenuDescriptionPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'Cheese Burger',
+              menu.name ?? '',
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -36,12 +40,12 @@ class MenuDescriptionPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'Freshly Made Burger with extra cheesee',
+              menu.description ?? '',
               style: TextStyle(fontSize: 16, height: 1.5),
             ),
             const SizedBox(height: 20),
             Text(
-              'Rs.100',
+              'Rs. ${menu.price ?? ''}',
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.green,
@@ -59,20 +63,17 @@ class MenuDescriptionPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            SizedBox( 
+            SizedBox(
               width: double.infinity,
-              child: ElevatedButton( 
-                style: ElevatedButton.styleFrom( 
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  backgroundColor: Colors.indigoAccent
-                ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 15),
+                    backgroundColor: Colors.indigoAccent),
                 child: const Text(
                   'Place order',
-                style: TextStyle( fontSize: 18, color: Colors.white),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
-                onPressed: (){ 
-                  
-                },
+                onPressed: () {},
               ),
             )
           ],
