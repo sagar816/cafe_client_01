@@ -1,16 +1,7 @@
 # cafe_client_01
 
-A new Flutter project.
+A cafe order management system project UI - development. 
 
-## Getting Started
+The app UI Includes details of the menu, sorting based on price and categories and transfering the order to the kitchen and Management staff
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![1](https://github.com/sagar816/cafe_client_01/assets/78189906/62cad31d-06ab-44f0-9cef-1929bb470884)
